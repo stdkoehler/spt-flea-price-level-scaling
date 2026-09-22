@@ -24,7 +24,7 @@ Output in `bin/Release/FleaPriceLevelScaling/`:
 - `config.jsonc`
 - `data/price_curves.json`
 
-Copy that folder into `user/mods/`.
+Copy that folder into `SPT_Runtime/user/mods/`.
 
 ## Tests
 

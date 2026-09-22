@@ -44,7 +44,7 @@ For this mod we use a pseudo-random approach for this. Seed is calculated from p
 ## Installation
 
 1. Download the release.
-2. Extract the zip into your SPT root (it already contains `user/mods/FleaPriceLevelScaling/`).
+2. Extract the zip into your SPT root (it already contains `SPT_Runtime/user/mods/FleaPriceLevelScaling/`).
 3. Start the server.
 
 ## Configuration
@@ -144,7 +144,7 @@ cd src/FleaPriceLevelScaling
 ```
 
 Builds Release and writes `Package/FleaPriceLevelScaling-<version>.zip`, laid out as
-`user/mods/FleaPriceLevelScaling/...` so it can be extracted straight onto an SPT
+`SPT_Runtime/user/mods/FleaPriceLevelScaling/...` so it can be extracted straight onto an SPT
 install - the same convention DrakiaXYZ's SPT mods use.
 
 ### Test
