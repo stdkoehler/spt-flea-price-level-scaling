@@ -1,0 +1,83 @@
+{
+  // =========================================================================
+  //  PLAYER SETTINGS - the knobs worth tuning
+  // =========================================================================
+
+  // Turn the whole mod off without uninstalling it.
+  "enabled": true,
+
+  // How strongly prices react to your level.
+  //   0.0 = no scaling at all (prices frozen at your flea-unlock level)
+  //   1.0 = exactly what the real Tarkov economy did
+  //   2.0 = twice the swing - recommended if 1.0 feels too subtle
+  // Applies to the price MULTIPLIER, not the base price.
+  "intensityExponent": 1.0,
+
+  // The level at which the season runs out. Above it prices stop trending and
+  // only drift day to day. The real season lasted 250 days, in which live
+  // players reached roughly level 50-70 - so there is no real data about what
+  // a level-79 economy looks like, and this mod does not invent any.
+  //   60  = the whole season arc happens between levels 15 and 60
+  //   79  = stretch the arc over the full level range (the old behaviour)
+  //   40  = a fast, compressed economy
+  "scalingMaxLevel": 60,
+
+  // How violent occasional price shocks are. Rare items spike or crash for a
+  // couple of days, like a real market.
+  //   1.0 = no shocks, just gentle drift
+  //   4.0 = as measured in live Tarkov (can reach ~8x on volatile items)
+  //   2.5 = tamer, recommended if 4.0 feels silly
+  "priceShockSize": 4.0,
+
+  "noise": {
+    // Whether prices drift at all. false = perfectly smooth curve, prices only
+    // ever change when you level up.
+    "enabled": true,
+
+    // Overall size of the day-to-day drift.
+    //   0.0 = off (same as enabled:false)
+    //   1.0 = as measured in live Tarkov
+    //   2.0 = chaotic
+    "amplitudeScale": 1.0
+  },
+
+  // =========================================================================
+  //  DEBUG SETTINGS - you probably do not need these
+  // =========================================================================
+  "debug": {
+    // Which slice of the real Tarkov season maps onto levels 15-79.
+    // Day 10 is early wipe (prices crash, then recover). Day 79 onward is the
+    // pure inflation run (prices only ever climb). 249 is the last day of data.
+    "startDay": 10.0,
+    "endDay": 249.0,
+
+    // true  = every playthrough gets its own market, seeded from the profile
+    // false = one shared market for every profile on this install
+    "perPlaythrough": true,
+
+    // Pin the market to a fixed seed, for reproducing a bug. null = derive it
+    // from the profile as normal.
+    "worldSeedOverride": null,
+
+    // Log the world seed at startup. Without it, per-playthrough markets are
+    // impossible to diagnose from a bug report.
+    "logWorldSeed": true,
+
+    // Hard limits on the final price, as a multiple of SPT's base price.
+    "priceBounds": { "min": 0.2, "max": 5.0 },
+
+    // Per-item drift ceiling in log space. Some items in the source data swing
+    // absurdly; this stops them. Affects ~27% of items at 0.5.
+    "sigmaCap": 0.5,
+
+    // Fraction of 48-hour windows that carry a price shock.
+    "jumpProbability": 0.04,
+
+    // The level at which the table is anchored. Change only if another mod
+    // moves the flea market unlock.
+    "fleaUnlockLevel": 15,
+
+    // Template ids to leave at SPT's default price.
+    "itemBlacklist": []
+  }
+}

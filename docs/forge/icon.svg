@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Tactical Small Inner Border Clip Path (Aligns All Glow & Fill Perfectly to Inner Border) -->
+    <clipPath id="inner-border-clip">
+      <polygon points="134,38 378,38 462,94 462,322 256,472 50,322 50,94" />
+    </clipPath>
+
+    <!-- Tactical Shield Base Gradients -->
+    <linearGradient id="shield-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161E2C" stop-opacity="0.96" />
+      <stop offset="50%" stop-color="#0E131C" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#070A0F" stop-opacity="1" />
+    </linearGradient>
+
+    <linearGradient id="shield-border" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#B45309" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#78350F" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Smooth Market Area Gradient (Fades to Zero at Top-Right and Bottom) -->
+    <linearGradient id="area-gradient-smooth" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.16" />
+      <stop offset="35%" stop-color="#D97706" stop-opacity="0.08" />
+      <stop offset="70%" stop-color="#78350F" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#070A0F" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Gold Gradients for Player Level Chevrons -->
+    <linearGradient id="chevron-gold-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="30%" stop-color="#FDE047" />
+      <stop offset="75%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <linearGradient id="chevron-gold-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="45%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+
+    <linearGradient id="chevron-gold-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#78350F" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Trend Line Gradient -->
+    <linearGradient id="line-glow-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="25%" stop-color="#F59E0B" />
+      <stop offset="75%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <!-- Candlestick Gradients -->
+    <linearGradient id="candle-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <linearGradient id="candle-red" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F87171" />
+      <stop offset="100%" stop-color="#DC2626" />
+    </linearGradient>
+
+    <!-- Area Glow Filter (Softens Edges into a Smooth, Organic Falloff) -->
+    <filter id="glow-area" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" />
+    </filter>
+
+    <!-- Multi-Tier Gaussian Glow Filters -->
+    <filter id="glow-ambient" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="16" />
+    </filter>
+
+    <filter id="glow-mid" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7" />
+    </filter>
+
+    <filter id="glow-tight" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.5" />
+    </filter>
+
+    <filter id="chevron-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="shield-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+
+    <filter id="element-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- 1. FULL-CANVAS TACTICAL PMC SHIELD BADGE BASE -->
+  <g filter="url(#shield-shadow)">
+    <!-- Outer Main Shield Body -->
+    <polygon points="126,24 386,24 476,88 476,330 256,488 36,330 36,88"
+             fill="url(#shield-bg)"
+             stroke="url(#shield-border)"
+             stroke-width="3" />
+  </g>
+
+  <!-- 2. SHIELD INTERIOR (ALIGNED TO INNER BORDER, SOFT ORGANIC FADEOFF) -->
+  <g clip-path="url(#inner-border-clip)">
+    <!-- Soft Area Glow Beneath Curve (Gaussian-Blurred Perimeter to Eliminate All Harsh Edges) -->
+    <path d="M 40,316
+             L 74,316
+             C 95,316 100,320 110,320
+             C 145,320 165,375 195,375
+             C 235,375 265,315 290,290
+             C 330,250 360,215 385,190
+             C 402,172 415,156 426,140
+             L 462,170
+             L 462,485
+             L 40,485 Z"
+          fill="url(#area-gradient-smooth)"
+          filter="url(#glow-area)" />
+
+    <!-- Layer A: Broad Volumetric Atmosphere Along Curve -->
+    <path d="M 74,316
+             C 95,316 100,320 110,320
+             C 145,320 165,375 195,375
+             C 235,375 265,315 290,290
+             C 330,250 360,215 385,190
+             C 408,165 424,142 440,120"
+          fill="none"
+          stroke="#F59E0B"
+          stroke-width="30"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.14"
+          filter="url(#glow-ambient)" />
+
+    <!-- Layer B: Mid-Range Luminous Aura -->
+    <path d="M 74,316
+             C 95,316 100,320 110,320
+             C 145,320 165,375 195,375
+             C 235,375 265,315 290,290
+             C 330,250 360,215 385,190
+             C 408,165 424,142 440,120"
+          fill="none"
+          stroke="#F59E0B"
+          stroke-width="14"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.28"
+          filter="url(#glow-mid)" />
+
+    <!-- Layer C: Tight Neon Bloom -->
+    <path d="M 74,316
+             C 95,316 100,320 110,320
+             C 145,320 165,375 195,375
+             C 235,375 265,315 290,290
+             C 330,250 360,215 385,190
+             C 408,165 424,142 440,120"
+          fill="none"
+          stroke="#FDE047"
+          stroke-width="6.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.45"
+          filter="url(#glow-tight)" />
+
+    <!-- 3. CANDLESTICK CHART (ALIGNED DIRECTLY WITH THE TREND LINE) -->
+    <g opacity="0.88">
+      <!-- Candle 1: Level 15 (Season Start - Line passes through center at Y=320) -->
+      <line x1="110" y1="275" x2="110" y2="365" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+      <rect x="101" y="298" width="18" height="44" rx="3.5"
+            fill="url(#candle-green)" fill-opacity="0.4"
+            stroke="#34D399" stroke-width="1.3" stroke-opacity="0.8" />
+
+      <!-- Candle 2: Level 21 (The Wipe Price Dip - Line troughs at Y=375) -->
+      <line x1="195" y1="330" x2="195" y2="420" stroke="#EF4444" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+      <rect x="186" y="352" width="18" height="46" rx="3.5"
+            fill="url(#candle-red)" fill-opacity="0.4"
+            stroke="#F87171" stroke-width="1.3" stroke-opacity="0.8" />
+
+      <!-- Candle 3: Level 35-40 (Mid-Season Recovery - Line climbs through Y=290) -->
+      <line x1="290" y1="245" x2="290" y2="335" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+      <rect x="281" y="267" width="18" height="46" rx="3.5"
+            fill="url(#candle-green)" fill-opacity="0.4"
+            stroke="#34D399" stroke-width="1.3" stroke-opacity="0.8" />
+
+      <!-- Candle 4: Level 60 (Late-Season Peak - Line surges through Y=190) -->
+      <line x1="385" y1="145" x2="385" y2="235" stroke="#10B981" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+      <rect x="376" y="166" width="18" height="48" rx="3.5"
+            fill="url(#candle-green)" fill-opacity="0.45"
+            stroke="#6EE7B7" stroke-width="1.3" stroke-opacity="0.85" />
+    </g>
+
+    <!-- 4. CRISP HERO TREND LINE -->
+    <path d="M 74,316
+             C 95,316 100,320 110,320
+             C 145,320 165,375 195,375
+             C 235,375 265,315 290,290
+             C 330,250 360,215 385,190
+             C 408,165 424,142 440,120"
+          fill="none"
+          stroke="url(#line-glow-grad)"
+          stroke-width="4.2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+
+    <!-- 5. TASTEFUL INTEGRATED "LVL" EMBLEM (INSIDE LOWER SHIELD V-CREST) -->
+    <g opacity="0.85">
+      <!-- Subtle Accent Divider -->
+      <line x1="226" y1="438" x2="286" y2="438" stroke="#F59E0B" stroke-opacity="0.3" stroke-width="1.2" />
+
+      <!-- Minimalist Vector "LVL" Geometry -->
+      <g stroke="url(#chevron-gold-1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <!-- L -->
+        <path d="M239,446 V455 H245" />
+        <!-- V -->
+        <path d="M251,446 L256,455 L261,446" />
+        <!-- L -->
+        <path d="M267,446 V455 H273" />
+      </g>
+
+      <!-- Miniature Base Chevron Pip -->
+      <path d="M252,464 L256,460 L260,464" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5" />
+    </g>
+  </g>
+
+  <!-- 3. SMALL INNER BORDER (CRISP METALLIC RIM FRAMING THE GLOW PERFECTLY) -->
+  <polygon points="134,38 378,38 462,94 462,322 256,472 50,322 50,94"
+           fill="none"
+           stroke="#F59E0B"
+           stroke-opacity="0.22"
+           stroke-width="1.4" />
+
+  <!-- 4. BREAKOUT ARROWHEAD AT APEX (PROUDLY ELEVATED, CLEAN VECTOR SHAPE) -->
+  <g transform="translate(440, 120) rotate(45)" filter="url(#element-shadow)">
+    <polygon points="0,-18 13,12 0,6 -13,12" fill="url(#chevron-gold-1)" stroke="#FFFFFF" stroke-width="1.5" />
+  </g>
+
+  <!-- 5. MILITARY RANK CHEVRONS (HERO PLAYER LEVEL - CRISP & PROUD) -->
+  <g filter="url(#element-shadow)">
+    <!-- Lower Chevron (Tier 1) -->
+    <path d="M190,218 L256,168 L322,218 L322,198 L256,148 L190,198 Z"
+          fill="url(#chevron-gold-3)"
+          stroke="#B45309"
+          stroke-width="1"
+          stroke-opacity="0.5" />
+
+    <!-- Middle Chevron (Tier 2) -->
+    <path d="M180,182 L256,130 L332,182 L332,162 L256,110 L180,162 Z"
+          fill="url(#chevron-gold-2)"
+          stroke="#F59E0B"
+          stroke-width="1.2"
+          stroke-opacity="0.75" />
+
+    <!-- Top Chevron (Apex Tier 3) -->
+    <path d="M170,146 L256,92 L342,146 L342,126 L256,72 L170,126 Z"
+          fill="url(#chevron-gold-1)"
+          stroke="#FFFBEB"
+          stroke-width="1.5"
+          filter="url(#chevron-glow)" />
+  </g>
+</svg>
